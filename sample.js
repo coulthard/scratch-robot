@@ -12,11 +12,20 @@
        console.log('In my_first_block');
     };
 
-    ext.robot_forward = function() {
+    ext.robot_fwd = function() {
        console.log('In robot_forward');
+
+        $.ajax({
+              url: 'http://10.0.0.133/pcf8574/drive?cmd=fwd',
+              dataType: 'jsonp',
+              success: function( data ) {
+              }
+        });
+
     };
     ext.robot_back = function() {
        console.log('In robot_back');
+       $.get('http://10.0.0.133/pcf8574/drive?cmd=back');
     };
     ext.robot_left = function() {
        console.log('In robot_left');
@@ -31,7 +40,7 @@
         blocks: [
 	    // Block type, block name, function name
 	    [ ' ', 'my first block', 'my_first_block' ],
-	    [ ' ', 'robot forwards', 'robot_forwards' ],
+	    [ ' ', 'robot forwards', 'robot_fwd' ],
 	    [ ' ', 'robot back', 'robot_back' ],
 	    [ ' ', 'robot left', 'robot_left' ],
 	    [ ' ', 'robot right', 'robot_right' ],
